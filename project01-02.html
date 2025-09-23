@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>High-Speed Internet Plans</title>
+<style>
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+  }
+  #header {
+    background-color: rgb(91, 137, 223);
+    color: white;
+    text-align: center;
+    padding: 20px;
+  }
+  #content {
+    background-color: rgb(218, 142, 44);
+    padding: 20px;
+    color: white;
+  }
+  h1 {
+    text-align: center;
+  }
+  table {
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: collapse;
+  }
+  th, td {
+    border: 1px solid white;
+    padding: 8px;
+    text-align: left;
+  }
+</style>
+</head>
+<body>
+
+<div id="header">
+  <h2>Hands-on Project 1-2</h2>
+</div>
+
+<div id="content">
+  <h1>High-Speed Internet Plans</h1>
+  <div id="planTable"></div>
+</div>
+
+<script>
+  // Define internet plan variables
+  const plan1Name = "Basic";
+  const plan1Speed = "50 Mbps";
+  const plan2Name = "Express";
+  const plan2Speed = "100 Mbps";
+  const plan3Name = "Extreme";
+  const plan3Speed = "500 Mbps";  
+  const plan4Name = "Ultimate";
+  const plan4Speed = "1 Gbps";
+  // Create the table dynamically using JavaScript
+  let tableHTML = "<table>";
+  tableHTML += "<tr><th>Service</th><th>Download Speed</th></tr>";
+  tableHTML += "<tr><td>" + plan1Name + "</td><td>" + plan1Speed + "</td></tr>";
+  tableHTML += "<tr><td>" + plan2Name + "</td><td>" + plan2Speed + "</td></tr>";
+  tableHTML += "<tr><td>" + plan3Name + "</td><td>" + plan3Speed + "</td></tr>";
+ 
+  tableHTML += "<tr><td>" + plan4Name + "</td><td>" + plan4Speed + "</td></tr>";
+  // Insert the table into the 'planTable' div
+  document.getElementById("planTable").innerHTML = tableHTML;
+</script>
+
+</body>
+</html>
+
+Romeo Korkis 09/22/25

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hands-on Project 1-4</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .header {
+            background-color: orange;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .form-section {
+            margin-bottom: 20px;
+        }
+        .form-section h3 {
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 10px;
+        }
+        .address-option {
+            margin-bottom: 10px;
+        }
+        .address-option label {
+            margin-left: 5px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .form-group input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Hands-on Project 1-4</h1>
+    </div>
+    
+    <div class="container">
+        <h2>Shipping Address</h2>
+        <form>
+            <div class="form-section">
+                <h3>Choose an address</h3>
+                <div class="address-option">
+                    <input type="radio" id="home-address" name="address-choice" value="home">
+                    <label for="home-address">
+                        <b>Home Address</b><br>
+                        123 Maple Street<br>
+                        Anytown, ST 12345
+                    </label>
+                </div>
+                <div class="address-option">
+                    <input type="radio" id="work-address" name="address-choice" value="work" checked>
+                    <label for="work-address">
+                        <b>Work Address</b><br>
+                        456 Oak Avenue<br>
+                        Sometown, ST 67890
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-section">
+                <h3>Selected Address Details</h3>
+                <div class="form-group">
+                    <label for="street">Street Address</label>
+                    <input type="text" id="street" name="street">
+                </div>
+                <div class="form-group">
+                    <label for="city">City</label>
+                    <input type="text" id="city" name="city">
+                </div>
+                <div class="form-group">
+                    <label for="state">State</label>
+                    <input type="text" id="state" name="state">
+                </div>
+                <div class="form-group">
+                    <label for="zip">Zip</label>
+                    <input type="text" id="zip" name="zip">
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        const homeAddress = {
+            street: '123 Maple Street',
+            city: 'Anytown',
+            state: 'ST',
+            zip: '12345'
+        };
+
+        const workAddress = {
+            street: '456 Oak Avenue',
+            city: 'Sometown',
+            state: 'ST',
+            zip: '67890'
+        };
+
+        const streetInput = document.getElementById('street');
+        const cityInput = document.getElementById('city');
+        const stateInput = document.getElementById('state');
+        const zipInput = document.getElementById('zip');
+
+        // Function to populate the form fields
+        function populateAddressFields(address) {
+            streetInput.value = address.street;
+            cityInput.value = address.city;
+            stateInput.value = address.state;
+            zipInput.value = address.zip;
+        }
+
+        // Event listener for radio button changes
+        document.querySelectorAll('input[name="address-choice"]').forEach(radio => {
+            radio.addEventListener('change', event => {
+                if (event.target.value === 'home') {
+                    populateAddressFields(homeAddress);
+                } else if (event.target.value === 'work') {
+                    populateAddressFields(workAddress);
+                }
+            });
+        });
+
+        // Populate fields on initial page load with the checked option (work address)
+        document.addEventListener('DOMContentLoaded', () => {
+            const workRadio = document.getElementById('work-address');
+            if (workRadio && workRadio.checked) {
+                populateAddressFields(workAddress);
+            }
+        });
+    </script>
+</body>
+</html>
+
+Romeo Korkis 09/22/25
