@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Hands-on Project 2-1</title>
+<style>
+  /* ===== Page Styling ===== */
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f7f7f7;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+  }
+
+  header {
+    width: 100%;
+    background-color: orange;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  }
+
+  section {
+    background-color: #fff;
+    padding: 30px 40px;
+    margin: 40px 0;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    width: 400px;
+  }
+
+  h2 {
+    text-align: center;
+    color: #333;
+  }
+
+  label {
+    display: block;
+    margin: 15px 0 5px;
+    font-weight: bold;
+  }
+
+  input[type="text"] {
+    width: 100%;
+    padding: 8px 12px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    box-sizing: border-box;
+  }
+
+  p {
+    text-align: center;
+    color: #666;
+    margin-top: 20px;
+  }
+</style>
+</head>
+
+<body>
+  <header>
+    <h1>Hands-on Project 2-1</h1>
+  </header>
+
+  <section>
+    <h2>Fahrenheit &lt;&gt; Celsius Converter</h2>
+
+    <label for="fValue">Temperature in degrees Fahrenheit:</label>
+    <input type="text" id="fValue" placeholder="Enter Fahrenheit">
+
+    <label for="cValue">Temperature in degrees Celsius:</label>
+    <input type="text" id="cValue" placeholder="Enter Celsius">
+
+    <p>Enter a Fahrenheit or Celsius temperature in either input box and press Tab to convert.</p>
+  </section>
+
+  <script>
+    /*
+      Your Name
+      Date
+      Project 02-01 JavaScript
+    */
+
+    // Convert Fahrenheit to Celsius
+    function FahrenheitToCelsius(degree) {
+      return ((degree - 32) / 1.8).toFixed(2);
+    }
+
+    // Convert Celsius to Fahrenheit
+    function CelsiusToFahrenheit(degree) {
+      return (degree * 1.8 + 32).toFixed(2);
+    }
+
+    // When the Celsius value changes → update Fahrenheit
+    document.getElementById("cValue").onchange = function () {
+      let cDegree = parseFloat(document.getElementById("cValue").value);
+      if (!isNaN(cDegree)) {
+        document.getElementById("fValue").value = CelsiusToFahrenheit(cDegree);
+      } else {
+        document.getElementById("fValue").value = '';
+      }
+    };
+
+    // When the Fahrenheit value changes → update Celsius
+    document.getElementById("fValue").onchange = function () {
+      let fDegree = parseFloat(document.getElementById("fValue").value);
+      if (!isNaN(fDegree)) {
+        document.getElementById("cValue").value = FahrenheitToCelsius(fDegree);
+      } else {
+        document.getElementById("cValue").value = '';
+      }
+    };
+  </script>
+</body>
+</html>
+Romeo Korkis
