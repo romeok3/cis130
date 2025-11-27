@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Hands-on Project 2-2</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    padding-top: 50px;
+  }
+
+  section {
+    background-color: #fff;
+    padding: 30px 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    width: 400px;
+  }
+
+  h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+  }
+
+  label {
+    display: block;
+    margin: 15px 0 5px;
+    font-weight: bold;
+  }
+
+  input[type="text"], input[type="email"], input[type="tel"] {
+    width: 100%;
+    padding: 8px 12px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    box-sizing: border-box;
+  }
+
+  button {
+    margin-top: 20px;
+    width: 100%;
+    padding: 10px 0;
+    background-color: orange;
+    border: none;
+    border-radius: 6px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background-color: darkorange;
+  }
+</style>
+</head>
+<body>
+  <section>
+    <h1>Contact Information</h1>
+
+    <label for="name">Name:</label>
+    <input type="text" id="name" placeholder="Enter your name">
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" placeholder="Enter your email">
+
+    <label for="phone">Phone:</label>
+    <input type="tel" id="phone" placeholder="Enter your phone number">
+
+    <button id="submit">Submit</button>
+  </section>
+
+  <script>
+    // This function verifies the form
+    function verifyForm() {
+      let name = document.getElementById("name").value.trim();
+      let email = document.getElementById("email").value.trim();
+      let phone = document.getElementById("phone").value.trim();
+
+      if (name && email && phone) {
+        window.alert("Thank you!");
+      } else {
+        window.alert("Please fill in all fields");
+      }
+    }
+
+    // Attach event listener to the button
+    document.getElementById("submit").addEventListener("click", verifyForm);
+  </script>
+</body>
+</html>
