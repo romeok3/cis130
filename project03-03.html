@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Hands-on Project 2-3</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    text-align: center;
+    padding: 50px;
+  }
+
+  h1 {
+    color: #333;
+  }
+
+  .shapes-container {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    margin-top: 40px;
+  }
+
+  /* Square */
+  #square {
+    width: 100px;
+    height: 100px;
+    background-color: lightblue;
+  }
+
+  /* Triangle */
+  #triangle {
+    width: 0;
+    height: 0;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-bottom: 100px solid lightgreen;
+  }
+
+  /* Circle */
+  #circle {
+    width: 100px;
+    height: 100px;
+    background-color: lightcoral;
+    border-radius: 50%;
+  }
+
+  #feedback {
+    margin-top: 40px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #555;
+    min-height: 30px;
+  }
+</style>
+</head>
+<body>
+  <h1>Mouseover Shapes</h1>
+
+  <div class="shapes-container">
+    <div id="square"></div>
+    <div id="triangle"></div>
+    <div id="circle"></div>
+  </div>
+
+  <p id="feedback"></p>
+
+  <script>
+    /*
+      Your Name
+      Date
+      Project 02-03 JavaScript
+    */
+
+    // Square events
+    const square = document.getElementById("square");
+    square.onmouseover = function() {
+      document.getElementById("feedback").innerHTML = "You're hovering over the square";
+    };
+    square.onmouseout = function() {
+      document.getElementById("feedback").innerHTML = "";
+    };
+
+    // Triangle events
+    const triangle = document.getElementById("triangle");
+    triangle.onmouseover = function() {
+      document.getElementById("feedback").innerHTML = "You're hovering over the triangle";
+    };
+    triangle.onmouseout = function() {
+      document.getElementById("feedback").innerHTML = "";
+    };
+
+    // Circle events
+    const circle = document.getElementById("circle");
+    circle.onmouseover = function() {
+      document.getElementById("feedback").innerHTML = "You're hovering over the circle";
+    };
+    circle.onmouseout = function() {
+      document.getElementById("feedback").innerHTML = "";
+    };
+  </script>
+</body>
+</html>
